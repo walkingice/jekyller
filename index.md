@@ -74,7 +74,7 @@ style: |
     }
     body .cover blockquote {
         font-style: normal;
-        font-size: 180%;
+        font-size: 125%;
         margin-left: 4em;
 
     }
