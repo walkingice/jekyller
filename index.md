@@ -36,6 +36,13 @@ style: |
         }
     pre .line-numbers { display: none }
     body .slide:after { display: none }
+    .slide ul {
+        font-size: 140%;
+        font-family: 'Ubuntu';
+    }
+    .slide ul li strong {
+        color: #c00;
+    }
     .shout {
         background: #eee;
     }
@@ -86,7 +93,7 @@ Audrey Tang
 * {:.next}Working with existing **relational** data
 * {:.next}Capable of loading **Node.js** modules
 * {:.next}Compatible with MongoLab's **REST API**
-* {:.next}Powered by `LiveScript`, `plv8`, `plv8x`, & `OneJS`
+* {:.next}= `LiveScript` + `plv8` + `plv8x` + `OneJS`
 
 ## JSON
 
@@ -118,7 +125,7 @@ INSERT INTO moe VALUES ('這不是 ㄓㄟ ㄙㄣˇ'); -- type error
 ~~~ sql
 CREATE EXTENSION plv8;
 CREATE FUNCTION get_key(obj JSON, key TEXT) returns JSON AS $$
-   return JSON.stringify(obj[key]);
+   return JSON.stringify( obj[key] );
 $$ LANGUAGE plv8;
 
 SELECT get_key(entry, 'bopomofo') FROM moe;
@@ -128,14 +135,14 @@ SELECT get_key(entry, 'bopomofo') FROM moe;
 ## plv8x
 
 ~~~ sql
-SELECT |> 'new Date' FROM moe;
-» "2013-04-17T12:31:57.523Z"
-
 SELECT entry |> 'this.bopomofo' FROM moe;
 » "ㄇㄥˊ"
 
 SELECT entry ~> '@bopomofo' FROM moe;
 » "ㄇㄥˊ"
+
+SELECT ~> 'new Date' FROM moe;
+» "2013-04-17T12:31:57.523Z"
 ~~~
 
 ## 〈回答〉
