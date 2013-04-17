@@ -3,103 +3,150 @@
 layout: default
 
 style: |
-
-    #Cover h2 {
+    #_ h2 a {
+        border-bottom: 1px dotted #eee;
+        color: white;
+    }
+    #_ h2 {
         margin:65px 0 0;
         color:#FFF;
         text-align:center;
         font-size:70px;
         }
-    #Cover p {
-        margin:10px 0 0;
-        text-align:center;
-        color:#FFF;
-        font-style:italic;
-        font-size:20px;
+    #_ p {
+        margin: 2em 0 0;
+        text-align: center;
+        color: #FFF;
+        font-style: italic;
+        font-size: 150%;
         }
-        #Cover p a {
+        #_ p a {
             color:#FFF;
             }
-    #Picture h2 {
+    .cover h2 {
         color:#FFF;
         }
+    body .shout h2 {
+        color: #222;
+        font-weight: normal;
+    }
+    pre {
+        white-space: pre !important;
+        font-family: 'Ubuntu Mono', 'Consolas', 'Menlo', monospace !important;
+        }
+    pre .line-numbers { display: none }
+    body .slide:after { display: none }
+    .shout {
+        background: #eee;
+    }
     #SeeMore h2 {
-        font-size:100px
+        font-size:100px;
         }
     #SeeMore img {
         width:0.72em;
         height:0.72em;
         }
+        br {
+            line-height: 1.5em;
+        }
+
+    body .cover figure {
+        color: white;
+    }
+    body .cover figcaption {
+        float: right;
+        font-style: normal;
+        font-size: 140%;
+        color: #ccc;
+        margin-top: -0.5em;
+        margin-right: 0em;
+    }
+    body .cover blockquote {
+        font-style: normal;
+        font-size: 180%;
+        margin-left: 4em;
+
+    }
 ---
 
-# Shower Presentation Engine {#Cover}
+# [PgREST](http://pgre.st/)<br>Node.js in the Database {#_}
 
-*Brought you by [Vadim Makeev](http://pepelsbey.net/)*
+Audrey Tang
 
-![](pictures/cover.jpg)
-<!-- photo by John Carey, fiftyfootshadows.net -->
+![](pictures/stars.jpg)
+<!-- by-nc-sa orkomedix, https://secure.flickr.com/photos/orkomedix/6812055939 -->
 
+## 不講故事<br>只講程式
+{:.shout #no-stories-just-code}
 
-## Shower Key Features
+## PgREST is...
 
-1. Built on HTML, CSS and vanilla JavaScript
-2. All modern browsers are supported
-3. Slide themes are separated from engine
-4. Fully keyboard accessible
-5. Printable to PDF
+* **JSON** document store
+* {:.next}Running inside **PostgreSQL**
+* {:.next}Working with existing **relational** data
+* {:.next}Capable of loading **Node.js** modules
+* {:.next}Compatible with MongoLab's **REST API**
+* {:.next}Powered by `LiveScript`, `plv8`, `plv8x`, & `OneJS`
 
-{:.note}
-Shower ['ʃəuə] noun. A person or thing that shows.
+## JSON
 
+~~~ json
+{ "title":    "萌",
+  "bopomofo": "ㄇㄥˊ",
+  "pinyin":   "méng",
+  "definitions": [
+    { "type": "名", "def": "草木初生的芽。" },
+    { "type": "名", "def": "事物發生的開端或徵兆。" },
+    { "type": "名", "def": "人民。" } ] }
+~~~
 
-## Plain Text on Your Slides
+## PostgreSQL
 
-Lorem ipsum dolor sit amet, consectetur [adipisicing](#all-kind-of-lists) elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, *quis nostrud* exercitation ullamco laboris **nisi ut aliquip** ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in `<culpa>` qui officia deserunt mollit anim id est laborum.
+~~~ sql
+CREATE TABLE moe ( "entry" JSON );
+INSERT INTO moe VALUES ($$
+{ "title":"萌", "bopomofo": "ㄇㄥˊ", "pinyin": "méng",
+  "definitions": [ { "type": "名", "def": "草木初生的芽。" },
+                   { "type": "名", "def": "事物發生的開端或徵兆。" },
+                   { "type": "名", "def": "人民。" } ] } $$);
 
-## All Kind of Lists
+INSERT INTO moe VALUES ('這不是 ㄓㄟ ㄙㄣˇ'); -- type error
+~~~
 
-1. Simple lists are marked with bullets
-2. Ordered lists begin with a number
-3. You can even nest lists one inside another
-    - Or mix their types
-    - But do not go too far
-    - Otherwise audience will be bored
-4. Look, seven rows exactly!
+## plv8
 
-## Serious Citations
+~~~ sql
+CREATE EXTENSION plv8;
+CREATE FUNCTION get_key(obj JSON, key TEXT) returns JSON AS $$
+   return JSON.stringify(obj[key]);
+$$ LANGUAGE plv8;
+
+SELECT get_key(entry, 'bopomofo') FROM moe;
+» "ㄇㄥˊ"
+~~~
+
+## plv8x
+
+~~~ sql
+SELECT |> 'new Date' FROM moe;
+» "2013-04-17T12:31:57.523Z"
+
+SELECT entry |> 'this.bopomofo' FROM moe;
+» "ㄇㄥˊ"
+
+SELECT entry ~> '@bopomofo' FROM moe;
+» "ㄇㄥˊ"
+~~~
+
+## 〈回答〉
+{:.cover #answer}
 
 <figure markdown="1">
-
-> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-
-<figcaption>Marcus Tullius Cicero</figcaption>
+> 新的轉機和閃閃星斗，<br>
+> 正在綴滿沒有遮攔的天空。<br>
+> 那是五千年的象形文字，<br>
+> 那是未來人們凝視的眼睛。
+<figcaption>／北島</figcaption>
 </figure>
-
-## Code Samples
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <mark><head></mark> <mark class="comment"><!--Comment--></mark>
-        <title>Shower</title>
-        <meta charset="<mark class="important">UTF-8</mark>">
-        <link rel="stylesheet" href="screen.css">
-    <mark></head></mark>
-
-## Pictures
-{:.cover #Picture}
-
-![](pictures/picture.jpg)
-<!-- photo by John Carey, fiftyfootshadows.net -->
-
-## **You can even shout this way**
-
-## Inner Navigation
-
-1. Lets you reveal list items one by one
-2. {:.next}To keep some key points
-3. {:.next}In secret from audience
-4. {:.next}But it will work only once
-5. {:.next}Nobody wants to see the same joke twice
-
-## ![](http://shwr.me/pictures/logo.svg) [See more on GitHub](https://github.com/shower/shower/)
-{:.shout #SeeMore}
+![](pictures/stars.jpg)
+<!-- by-nc-sa orkomedix, https://secure.flickr.com/photos/orkomedix/6812055939 -->

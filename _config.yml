@@ -4,6 +4,8 @@ server: true
 markdown: kramdown
 pygments: true
 permalink: /:title.html
+kramdown:
+  coderay_css: class
 exclude: [shower,themes]
 
 default_theme: ribbon
@@ -11,11 +13,10 @@ default_lang: en
 default_body_class: list
 
 author:
-    name: Yours Truly
-    # url:  http://example.com/
+    name: Audrey Tang
     company:
-        name: Famous Inc.
+        name: OSDC.tw 2013
         # url:  http://example.com/
 
-fork_url: https://github.com/shower/shower
+fork_url: https://github.com/audreyt/moedict-webkit
 progress: true
