@@ -41,8 +41,10 @@ style: |
           box-shadow: 0em 0.2em 0.3em 0px #999999;
     }
     .slide ul, p {
+        font-family: 'Ubuntu', sans-serif;
+    }
+    .slide ul {
         font-size: 140%;
-        font-family: 'Ubuntu';
     }
     .slide ul li strong {
         color: #c00;
@@ -74,7 +76,7 @@ style: |
     }
     body .cover blockquote {
         font-style: normal;
-        font-size: 125%;
+        font-size: 180%;
         margin-left: 4em;
 
     }
