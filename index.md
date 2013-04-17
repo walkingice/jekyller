@@ -36,7 +36,11 @@ style: |
         }
     pre .line-numbers { display: none }
     body .slide:after { display: none }
-    .slide ul {
+    .slide img {
+        border-radius: 0.5em;
+          box-shadow: 0em 0.2em 0.3em 0px #999999;
+    }
+    .slide ul, p {
         font-size: 140%;
         font-family: 'Ubuntu';
     }
@@ -144,6 +148,9 @@ SELECT entry ~> '@bopomofo' FROM moe;
 SELECT ~> 'new Date' FROM moe;
 » "2013-04-17T12:31:57.523Z"
 ~~~
+
+## Request Form
+![](pictures/twblg-request.jpg)
 
 ## 〈回答〉
 {:.cover #answer}
