@@ -26,6 +26,16 @@ style: |
     .cover h2 {
         color:#FFF;
         }
+    #twblg code {
+        display: none;
+    }
+    .cover h2 code {
+        background: transparent;
+        color: white;
+        margin-left: -1em;
+        font-weight: normal;
+        font-family: 'Ubuntu Mono', 'Consolas', 'Menlo', monospace !important;
+        }
     body .shout h2 {
         color: #222;
         font-weight: normal;
@@ -74,13 +84,13 @@ style: |
         font-style: normal;
         font-size: 140%;
         color: #ccc;
-        margin-top: -0.5em;
+        margin-top: -0.4em;
         margin-right: 0em;
     }
     body .cover blockquote {
         font-style: normal;
         font-size: 180%;
-        margin-left: 4em;
+        margin-left: 3em;
 
     }
 ---
@@ -169,9 +179,9 @@ plv8x -E 'plv8.execute("SELECT entry FROM moe").0.entry.definitions'
 ## plv8x: Modules
 
 ~~~ php
-$ npm i -g uax11
-$ plv8x -i uax11
-$ plv8x -E 'require "uax11" .toFullwidth "méng"'
+npm i -g uax11
+plv8x -i uax11
+plv8x -E 'require "uax11" .toFullwidth "méng"'
 # ｍｅ́ｎｇ
 ~~~
 
@@ -183,8 +193,8 @@ SELECT entry ~> 'require "uax11" .toFullwidth @pinyin' FROM moe;
 ## plv8x: Functions
 
 ~~~ php
-$ plv8x -f 'text fullwidth(text)=uax11:toFullwidth'
-$ plv8x -f 'text PINYIN(json)=:&0.pinyin.toUpperCase!'
+plv8x -f 'text fullwidth(text)=uax11:toFullwidth'
+plv8x -f 'text PINYIN(json)=:&0.pinyin.toUpperCase!'
 ~~~
 
 ~~~ sql
@@ -194,7 +204,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 -- ＭＥ́ＮＧ
 ~~~
 
-## plv8x: Summary
+## Summary
 
 * {:.next}`V8`: JavaScript engine
 * {:.next}`PLV8`: Stored procedures in JavaScript
@@ -203,12 +213,22 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
     * {:.next}**JSON** expressions with `~>` and `<~`
 * {:.next}Code reuse for **browser** + **server** + **database** !
 
-## Interlude
+## `3du.tw`
+{:.cover #3du}
+![](pictures/3du.jpg)
+
+## `moedict.tw`
+{:.cover #moedict}
+![](pictures/moedict.png)
+
+## `twblg.moedict.tw`
+{:.cover #twblg}
+![](pictures/seeking.jpg)
 
 ## Request Form
 ![](pictures/twblg-request.jpg)
 
-## 〈回答〉
+## Q & A
 {:.cover #answer}
 
 <figure markdown="1">
@@ -216,7 +236,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 > 正在綴滿沒有遮攔的天空。<br>
 > 那是五千年的象形文字，<br>
 > 那是未來人們凝視的眼睛。
-<figcaption>／北島</figcaption>
+<figcaption>／北島〈回答〉</figcaption>
 </figure>
 ![](pictures/stars.jpg)
 <!-- by-nc-sa orkomedix, https://secure.flickr.com/photos/orkomedix/6812055939 -->
