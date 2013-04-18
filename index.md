@@ -133,11 +133,11 @@ INSERT INTO moe VALUES ('這不是 ㄓㄟ ㄙㄣˇ'); -- type error
 
 ~~~ sql
 CREATE EXTENSION plv8;
-CREATE FUNCTION getKey(obj JSON, key TEXT) returns JSON AS $$
+CREATE FUNCTION get_json_key(obj JSON, key TEXT) returns JSON AS $$
    return JSON.stringify( obj[key] );
 $$ LANGUAGE plv8;
 
-SELECT getKey(entry, 'bopomofo') FROM moe;
+SELECT get_json_key(entry, 'bopomofo') FROM moe;
 -- "ㄇㄥˊ"
 ~~~
 
