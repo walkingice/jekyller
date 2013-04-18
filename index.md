@@ -221,6 +221,10 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 {:.cover #moedict}
 ![](pictures/moedict.png)
 
+## Live Demo
+
+<iframe src="https://moedict.tw/">
+
 ## `twblg.moedict.tw`
 {:.cover #twblg}
 ![](pictures/seeking.jpg)
