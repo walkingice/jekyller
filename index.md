@@ -160,10 +160,10 @@ SELECT ~> 'new Date' FROM moe;
 npm i -g plv8x
 export PLV8XCONN=dbname
 plv8x -r script.ls # .js works too
-plv8x -E 'plv8.execute """
-  SELECT entry FROM moe
-""" .0.entry.pinyin.toUpperCase!'
-# MÉNG
+plv8x -E 'plv8.execute("SELECT entry FROM moe").0.entry.definitions'
+# [ { type: '名', def: '草木初生的芽。' },
+#   { type: '名', def: '事物發生的開端或徵兆。' },
+#   { type: '名', def: '人民。' } ]
 ~~~
 
 ## plv8x: Modules
