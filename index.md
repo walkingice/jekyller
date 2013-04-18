@@ -65,6 +65,10 @@ style: |
     .shout {
         background: #eee;
     }
+    iframe {
+        width: 800px;
+        height: 400px;
+    }
     #SeeMore h2 {
         font-size:100px;
         }
@@ -223,7 +227,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## Live Demo
 
-<iframe src="https://moedict.tw/">
+<iframe src="https://moedict.tw/"></iframe>
 
 ## `twblg.moedict.tw`
 {:.cover #twblg}
