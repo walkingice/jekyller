@@ -85,7 +85,7 @@ style: |
     }
 ---
 
-# [PgREST](http://pgre.st/)<br>Node.js in the Database {#_}
+# [PgREST](http://pgre.st/) <br>Node.js in the Database {#_}
 
 Audrey Tang
 
@@ -97,7 +97,7 @@ Audrey Tang
 
 ## PgREST is...
 
-* **JSON** document store
+* {:.next}**JSON** document store
 * {:.next}Running inside **PostgreSQL**
 * {:.next}Working with existing **relational** data
 * {:.next}Capable of loading **Node.js** modules
@@ -196,12 +196,12 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## plv8x: Summary
 
-* `V8`: JavaScript engine
-* `PLV8`: Stored procedures in JavaScript
-* `plv8x`: Package manager for PLV8
-    * Turns **NPM** modules into **SQL functions**
-    * **JSON** expressions with `~>` and `<~`
-* Code reuse for **browser** + **server** + **database**!
+* {:.next}`V8`: JavaScript engine
+* {:.next}`PLV8`: Stored procedures in JavaScript
+* {:.next}`plv8x`: Package manager for PLV8
+    * {:.next}Turns **NPM** modules into **SQL functions**
+    * {:.next}**JSON** expressions with `~>` and `<~`
+* {:.next}Code reuse for **browser** + **server** + **database** !
 
 ## Interlude
 
