@@ -43,8 +43,11 @@ style: |
     .slide ul, p {
         font-family: 'Ubuntu', sans-serif;
     }
-    .slide ul {
+    .slide ul li {
         font-size: 140%;
+    }
+    .slide ul li li {
+        font-size: 1em;
     }
     .slide ul li strong {
         color: #c00;
@@ -99,7 +102,7 @@ Audrey Tang
 * {:.next}Working with existing **relational** data
 * {:.next}Capable of loading **Node.js** modules
 * {:.next}Compatible with MongoLab's **REST API**
-* {:.next}= `LiveScript` + `plv8` + `plv8x` + `OneJS`
+* {:.next}= `LiveScript` + `PLV8` + `plv8x` + `OneJS`
 
 ## JSON
 
@@ -126,30 +129,81 @@ INSERT INTO moe VALUES ($$
 INSERT INTO moe VALUES ('這不是 ㄓㄟ ㄙㄣˇ'); -- type error
 ~~~
 
-## plv8
+## PLV8
 
 ~~~ sql
 CREATE EXTENSION plv8;
-CREATE FUNCTION get_key(obj JSON, key TEXT) returns JSON AS $$
+CREATE FUNCTION getKey(obj JSON, key TEXT) returns JSON AS $$
    return JSON.stringify( obj[key] );
 $$ LANGUAGE plv8;
 
-SELECT get_key(entry, 'bopomofo') FROM moe;
-» "ㄇㄥˊ"
+SELECT getKey(entry, 'bopomofo') FROM moe;
+-- "ㄇㄥˊ"
 ~~~
 
-## plv8x
+## plv8x: Operators
 
 ~~~ sql
 SELECT entry |> 'this.bopomofo' FROM moe;
-» "ㄇㄥˊ"
-
+-- "ㄇㄥˊ"
 SELECT entry ~> '@bopomofo' FROM moe;
-» "ㄇㄥˊ"
-
+-- "ㄇㄥˊ"
+SELECT '@bopomofo' <~ entry FROM moe;
+-- "ㄇㄥˊ"
 SELECT ~> 'new Date' FROM moe;
-» "2013-04-17T12:31:57.523Z"
+-- "2013-04-17T12:31:57.523Z"
 ~~~
+
+## plv8x: Command Line
+
+~~~ php
+npm i -g plv8x
+export PLV8XCONN=dbname
+plv8x -r script.ls # .js works too
+plv8x -E 'plv8.execute """
+  SELECT entry FROM moe
+""" .0.entry.pinyin.toUpperCase!'
+# MÉNG
+~~~
+
+## plv8x: Modules
+
+~~~ php
+$ npm i -g uax11
+$ plv8x -i uax11
+$ plv8x -E 'require "uax11" .toFullwidth "méng"'
+# ｍｅ́ｎｇ
+~~~
+
+~~~ sql
+SELECT entry ~> 'require "uax11" .toFullwidth @pinyin' FROM moe;
+-- "ｍｅ́ｎｇ"
+~~~
+
+## plv8x: Functions
+
+~~~ php
+$ plv8x -f 'text fullwidth(text)=uax11:toFullwidth'
+$ plv8x -f 'text PINYIN(json)=:&0.pinyin.toUpperCase!'
+~~~
+
+~~~ sql
+SELECT fullwidth('Ingy döt Net');
+-- Ｉｎｇｙ　ｄｏ̈ｔ　Ｎｅｔ
+SELECT fullwidth( PINYIN(entry) ) FROM moe;
+-- ＭＥ́ＮＧ
+~~~
+
+## plv8x: Summary
+
+* `V8`: JavaScript engine
+* `PLV8`: Stored procedures in JavaScript
+* `plv8x`: Package manager for PLV8
+    * Turns **NPM** modules into **SQL functions**
+    * **JSON** expressions with `~>` and `<~`
+* Code reuse for **browser** + **server** + **database**!
+
+## Interlude
 
 ## Request Form
 ![](pictures/twblg-request.jpg)
