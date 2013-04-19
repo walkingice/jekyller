@@ -35,6 +35,9 @@ style: |
         #_ p a {
             color:#FFF;
             }
+    .wrap pre {
+        white-space: normal !important
+    }
     .cover h2 {
         color:#FFF;
         }
@@ -82,6 +85,21 @@ style: |
         border-radius: 0.5em;
           box-shadow: 0em 0.2em 0.3em 0px #999999;
     }
+    .slide img {
+        height: 400px;
+    }
+    .slide blockquote img {
+        height: auto;
+    }
+    .cover img {
+        height: 640px;
+    }
+    .vertical-top p {
+        vertical-align: top;
+        margin-top: 50px;
+        margin-right: 50px;
+    }
+
     .slide ul, p {
         font-family: 'Ubuntu', sans-serif;
     }
@@ -257,6 +275,13 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## Cutting out the Middleware
 
+* Serve JSON **API** from SQL
+* Shared **models** & **validation** code
+* Put **Business Logic** into DB
+* Perfect fit for **Medium Data**&trade;
+
+## @clkao++
+![](pictures/clkao-cat.jpg)
 
 ## `3du.tw`
 {:.cover #3du}
@@ -265,7 +290,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## The Revised MoE Dictionary (1994)
 
-<iframe src="data:http://dict.revised.moe.edu.tw/"></iframe>
+![](pictures/gxcd.jpg)
 
 ## The Good
 
@@ -293,13 +318,13 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 ## .…and the Very Crazy
 
 > 不需登入的網頁，會自動把你登出！
-
-![](pictures/dict-logout.png)
+> 
+> ![](pictures/dict-logout.png)
 
 ## Yeh's Ping, 2013.1.26.
 
 <figure markdown="1">
-> 所以我要響應零時政府 g0v.tw 的活動，來做 3du.tw，把字、詞、成語、定義、例句等等正體中文資料，用開放的文字 API 釋放出來，加上索引和搜尋的功能，讓任何想加值的個人或公司都可以使用。 
+> 所以我要 **響應** 零時政府 g0v.tw 的活動，來做 3du.tw，把字、詞、成語、定義、例句等等正體中文資料，用開放的文字 API 釋放出來，加上索引和搜尋的功能，讓任何想加值的個人或公司都可以使用。 
 <figcaption>／葉平〈還文於民〉</figcaption>
 </figure>
 
@@ -349,6 +374,18 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * Sublime Text plugin (@zonble)
 * WinRT Component (@eriksk)
 
+## Fair Use
+
+<figure markdown="1">
+> 為非營利之教育目的，依著作權法第 50 條，「以中央或地方機關或公法人之名義公開發表之著作，在合理範圍內，得重製、公開播送或公開傳輸。」此處轉換格式、重新編排的編輯著作權(如果有的話)由 @kcwu 以 `CC0` 釋出。
+</figure>
+
+## CC0: Public Domain
+
+<figure markdown="1">
+> 除前述資料檔之外，本目錄下的所有其他檔案，由作者 唐鳳 在法律 許可的範圍內，拋棄該著作依著作權法所享有之權利，包括所有相關 與鄰接的法律權利，並宣告將該著作貢獻至公眾領域。
+</figure>
+
 ## `moedict.tw`
 {:.cover #moedict}
 ![](pictures/moedict.png)
@@ -356,15 +393,15 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## 5 Stars of Open Data
 
 1. ⊙ **Open** License
-2. ↔ **Structured** Data
-3. ▵ **Non-Proprietary** Format
+2. …↔ **Structured** Data
+3. …▵ **Non-Proprietary** Format
 4. …✧ Each Item has an **URI**
 5. …✩ **Linking** between Items
 
 ## URI Endpoints
 
 * `https://moedict.tw/#文字`
-* 3 APIs (for __non-Unicode__ characters):
+* …3 APIs (for __non-Unicode__ characters):
     * `/raw/文字.json` ⇒ `{[8ff0]}` 
     * `/uni/文字.json` ⇒ `⿰亻壯`
     * `/pua/文字.json` ⇒ `U+F8FF0`
@@ -373,7 +410,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 * Initially based on Hán Nôm font (Yao Wei)
     * Subset everything outside Big5 range
-    * Hand-drawn for PUA chars like ⿰亻壯
+    * Hand-drawn PUA chars like ⿰亻壯
 * …Later on, switched to Hanazono 花園明朝 font
     * 75,619 + 8,236 glyphs
     * From 花園大学国際禅学研究所
@@ -383,10 +420,73 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Live Demo
 
-<iframe src="data:http://moedict.tw/"></iframe>
-<!-- Replace with localhost -->
+<iframe data-src="https://moedict.tw/#文字"></iframe>
+<!-- Replace with localhost with autofocus OFF -->
 
-## Auto Linking
+## Getting to the Fifth Star
+
+1. ⊙ Open License
+2. ↔ Structured Data
+3. ▵ Non-Proprietary Format
+4. ✧ Each Item has an URI
+5. ✩ **Linking between Items**
+
+## Chinese Segmentation
+
+* No whitespaces between words
+* Lots of heuristic algorithms
+* Naive solution: Longest-token match
+    * Requires a large dictionary
+    * ...wait, we just got one here
+
+## Initial Implementation
+
+* XXX For the client side
+* XXX: lenToRegex
+
+## Works well, but...
+
+* Freezes IE8, crashes IE7
+    * Broken on Android 2.x, too
+* So let's pre-segment everything
+    * Needs a tool to move JS into DB
+    * ...wait, we just got one here
+
+## `/a/pua/文字.json`
+{:.wrap}
+
+~~~ json
+{"h":[{"b":"ㄨㄣˊ ㄗˋ","d":[{"f":"`人類~`用來~`表示~`觀念~、`記錄~`語言~`的~`符號~。","s":"`筆墨~,`翰墨~"},{"f":"`文書~。","q":["`五代史~`平話~．`梁~`史~．`卷~`上~：「`您~`去~`攻破~`宋~`州~，`為我~`奪取~`張~`節使~`歸~`娘~。`才~`得~，`便~`發文~`字~`來~`報~`我~。」","`警世通言~．`卷~`十~`三~．`三~`現身~`包龍圖~`斷~`冤~：「`有~`甚事~`煩惱~？`想~`是~`縣~`裡~`有~`甚~`文字~`不了~。」"]}],"p":"wén zì"}],"t":"`文~`字~"}
+~~~
+
+## Live Demo, part II
+
+<iframe data-src="https://moedict.tw/#文字"></iframe>
+<!-- Replace with localhost with autofocus OFF -->
+
+## Materialized View: 160k .json files
+{:.vertical-top}
+
+@obra++
+![](pictures/drobo.jpg)
+
+## Let's PhoneGap it!
+
+* …Freezes XCode
+* …Crashes Eclipse
+* …Solution: Pack into 1024 .txt files
+    * Using the last 10 bits of the first word
+    * Load related words in the same bucket
+
+## Google Play & App Store
+
+## Star-Driven Development
+
+* Wildcard and part-of-word searching
+* …Two-column layout for tablets (@hlb++)
+* …Toggle position of Pinyin vs Bopomofo
+* …Volume key on Android to resize fonts!
+* …Top Request: **Taiwanese Bân-lâm-gi**
 
 ## `twblg.moedict.tw`
 {:.cover #twblg}
@@ -394,7 +494,6 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Request Form
 ![](pictures/twblg-request.jpg)
-
 
 ## 宅心仁厚<br>仁者無敵
 {:.shout #nerds-without-enemies}
