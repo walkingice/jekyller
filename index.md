@@ -7,6 +7,18 @@ style: |
         border-bottom: 1px dotted #eee;
         color: white;
     }
+    @font-face {
+        font-family: 'Symbola';
+        src: url('Symbola602.otf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Ubuntu Mono';
+        src: url('UbuntuMono-R.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Ubuntu';
+        src: url('Ubuntu-R.ttf') format('truetype');
+    }
     #_ h2 {
         margin:65px 0 0;
         color:#FFF;
@@ -26,8 +38,24 @@ style: |
     .cover h2 {
         color:#FFF;
         }
+    #big5-utf8.shout div h2 {
+        font-family: 'Symbola' !important;
+    }
     #twblg code {
         display: none;
+    }
+    span[style="color:#710"] {
+        color: #800 !important;
+        background: #fff !important;
+    }
+
+    span[style="color:#D20"] {
+        color: #800 !important;
+        background: #ffe !important;
+    }
+    span[style="color:#F00;background-color:#FAA"] {
+        color: #000 !important;
+        background: #ffe !important;
     }
     .cover h2 code {
         background: transparent;
@@ -57,13 +85,13 @@ style: |
     .slide ul, p {
         font-family: 'Ubuntu', sans-serif;
     }
-    .slide ul li {
+    .slide ul li, .slide ol li {
         font-size: 140%;
     }
-    .slide ul li li {
+    .slide ul li li, .slide ol li li {
         font-size: 1em;
     }
-    .slide ul li strong {
+    .slide ul li strong, .slide ol li strong {
         color: #c00;
     }
     .shout {
@@ -116,17 +144,17 @@ Audrey Tang
 ![](pictures/stars.jpg)
 <!-- by-nc-sa orkomedix, https://secure.flickr.com/photos/orkomedix/6812055939 -->
 
-## 不講故事<br>只講程式
-{:.shout #no-stories-just-code}
+## 只講程式<br>不講故事
+{:.shout #just-code-no-stories}
 
 ## PgREST is...
 
-* {:.next}**JSON** document store
-* {:.next}Running inside **PostgreSQL**
-* {:.next}Working with existing **relational** data
-* {:.next}Capable of loading **Node.js** modules
-* {:.next}Compatible with MongoLab's **REST API**
-* {:.next}= `LiveScript` + `PLV8` + `plv8x` + `OneJS`
+* …**JSON** document store
+* …Running inside **PostgreSQL**
+* …Working with existing **relational** data
+* …Capable of loading **Node.js** modules
+* …Compatible with MongoLab's **REST API**
+* …= `LiveScript` + `PLV8` + `plv8x` + `OneJS`
 
 ## JSON
 
@@ -220,39 +248,145 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## Summary
 
-* {:.next}`V8`: JavaScript engine
-* {:.next}`PLV8`: Stored procedures in JavaScript
-* {:.next}`plv8x`: Package manager for PLV8
-    * {:.next}Turns **NPM** modules into **SQL functions**
-    * {:.next}**JSON** expressions with `~>` and `<~`
-* {:.next}Code reuse for **browser** + **server** + **database** !
+* …`V8`: JavaScript engine
+* …`PLV8`: Stored procedures in JavaScript
+* …`plv8x`: Package manager for PLV8
+    * …Turns **NPM** modules into **SQL functions**
+    * …**JSON** expressions with `~>` and `<~`
+* …Code reuse for **browser** + **server** + **database** !
+
+## Cutting out the Middleware
+
 
 ## `3du.tw`
 {:.cover #3du}
 ![](pictures/3du.jpg)
 <!-- by Kanko, https://secure.flickr.com/photos/kankan/134663487/ -->
 
-## 3du.tw on Hackpad
+## The Revised MoE Dictionary (1994)
 
-<iframe src="data:http://3du.tw/"></iframe>
-<!-- Replace with screenshot? -->
+<iframe src="data:http://dict.revised.moe.edu.tw/"></iframe>
+
+## The Good
+
+* 160,000+ entries
+* …Official, high quality sources
+* …Rich etymology and historical usage
+* …Full text search with regular expressions
+* …Still frequently updated!
+
+## The Bad
+
+* Results are not bookmarkable
+* …Requires N clicks to get to a definition
+* …Rare characters become low-res bitmaps
+* …Difficult to use on mobile devices
+* …"Optimized for IE 5.0 and Netscape 4.7+"!?
+
+## The Sad
+
+<figure markdown="1">
+> 本會非常歡迎各位來連結「國語辭典」，但是本會目前只開放以超連結 (hyperlink) 的方式與國語辭典 **首頁** 連結，至於其他方式本會並未對外開放授權。若還有疑問或建議，歡迎來信。 
+<figcaption>／教育部國語推行委員會〈有關授權〉</figcaption>
+</figure>
+
+## .…and the Very Crazy
+
+> 不需登入的網頁，會自動把你登出！
+
+![](pictures/dict-logout.png)
+
+## Yeh's Ping, 2013.1.26.
+
+<figure markdown="1">
+> 所以我要響應零時政府 g0v.tw 的活動，來做 3du.tw，把字、詞、成語、定義、例句等等正體中文資料，用開放的文字 API 釋放出來，加上索引和搜尋的功能，讓任何想加值的個人或公司都可以使用。 
+<figcaption>／葉平〈還文於民〉</figcaption>
+</figure>
+
+## 零時黑客<br>集體砍站事件
+{:.shout #g0v-scraping}
+
+## Hackpad for 3du.tw
+
+![](pictures/hackpad.png)
+
+## g0v hackath1n, 2013.1.27.
+
+* …Scraped 3000 characters into HTML (au)
+* …Scraped 2741 idioms into HTML (TonyQ, MnO2)
+* …Designed JSON schema from samples (Ping)
+* …Designed SQL schema from samples (albb0920)
+* …Parsed HTML into JSON & SQLite (kcwu)
+
+## `←`&#x1f01d; `Big-5`<br>`→`&#x1f00e; `UTF-8`
+{:.shout #big5-utf8}
+
+## Crowd-sourcing 1000+ glyphs
+
+![](pictures/thinking.png)
+
+## Finished in 24 hours!
+
+Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Daniel Liang, Grey Lee, Irvin Chen, Gugod, Schee…
+![](pictures/unimap.png)
+
+## 粗略的共識<br>會動的程式
+{:.shout #rough-consensus-running-code}
+
+## Applications
+
+* XUL Desktop App (@racklin)
+* OS X Dictionary (@yllan)
+* Windows 8 App (@wenpei)
+* iOS Client (@tomjpsun, @jamessa, @pct)
+* iOS App (@zonble)
+ 
+## Integrations
+
+* AngularJS Client+Server (@viirya)
+* Rails API server (@albb0920)
+* Chrome Extension (@tonytonyjan)
+* Sublime Text plugin (@zonble)
+* WinRT Component (@eriksk)
 
 ## `moedict.tw`
 {:.cover #moedict}
 ![](pictures/moedict.png)
+
+## 5 Stars of Open Data
+
+1. ⊙ **Open** License
+2. ↔ **Structured** Data
+3. ▵ **Non-Proprietary** Format
+4. …✧ Each Item has an **URI**
+5. …✩ **Linking** between Items
+
+## URI Endpoints
+
+* `https://moedict.tw/#文字`
+* 3 APIs (for __non-Unicode__ characters):
+    * `/raw/文字.json` ⇒ `{[8ff0]}` 
+    * `/uni/文字.json` ⇒ `⿰亻壯`
+    * `/pua/文字.json` ⇒ `U+F8FF0`
+
+## Private-Use Web Fonts
+
+* Initially based on Hán Nôm font (Yao Wei)
+    * Subset everything outside Big5 range
+    * Hand-drawn for PUA chars like ⿰亻壯
+* …Later on, switched to Hanazono 花園明朝 font
+    * 75,619 + 8,236 glyphs
+    * From 花園大学国際禅学研究所
+
+## 科技始終<br>來自於佛性
+{:.shout #technology-buddha-nature}
 
 ## Live Demo
 
 <iframe src="data:http://moedict.tw/"></iframe>
 <!-- Replace with localhost -->
 
-## 5 Stars of Open Data
-
-* ⊙ Open License
-* ↔ Structure Data Format
-* ▵ Non-Proprietary Format
-* ✧ Each items has an URI
-* ✩ Link to other data
+## Auto Linking
 
 ## `twblg.moedict.tw`
 {:.cover #twblg}
@@ -261,20 +395,9 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 ## Request Form
 ![](pictures/twblg-request.jpg)
 
-## `←`&#x1f01d; `Big-5`<br>`→`&#x1f00e; `UTF-8`
-{:.shout #big5-utf8}
-
-## 零時黑客<br>集體砍站事件
-{:.shout #g0v-scraping}
-
-## 粗略的共識<br>會動的程式
-{:.shout #rough-consensus-running-code}
 
 ## 宅心仁厚<br>仁者無敵
 {:.shout #nerds-without-enemies}
-
-## 科技始終<br>來自於佛性
-{:.shout #technology-buddha-nature}
 
 ## When is Transparency Useful?
 
@@ -299,11 +422,3 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 </figure>
 ![](pictures/stars.jpg)
 <!-- by-nc-sa orkomedix, https://secure.flickr.com/photos/orkomedix/6812055939 -->
-
-## Inner Navigation
-
-1. Lets you reveal list items one by one
-2. …To keep some key points
-3. …In secret from audience
-4. …But it will work only once
-5. …Nobody wants to see the same joke twice
