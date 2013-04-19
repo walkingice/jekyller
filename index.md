@@ -299,3 +299,11 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 </figure>
 ![](pictures/stars.jpg)
 <!-- by-nc-sa orkomedix, https://secure.flickr.com/photos/orkomedix/6812055939 -->
+
+## Inner Navigation
+
+1. Lets you reveal list items one by one
+2. …To keep some key points
+3. …In secret from audience
+4. …But it will work only once
+5. …Nobody wants to see the same joke twice

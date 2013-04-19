@@ -24,6 +24,7 @@
 
             <!-- Looking for strong in header for shout -->
             {% capture slide_header_content %}^BEGIN^{{ slide | remove_first:slide_attrs | split:'</h2>' | first }}$END${% endcapture %}
+            {% assign slide_extra_class = '' %}
             {% if slide_header_content contains '^BEGIN^><strong>' and slide_header_content contains '</strong>$END$' %}
                 {% assign slide_extra_class = ' shout' %}
             {% endif %}
@@ -94,6 +95,15 @@
     {% endif %}
     {% assign iteration = iteration | plus:1 %}
 {% endfor %}
+
+<!-- Adding .next to list items -->
+{% assign showerify_middle = showerify_middle | replace:'>...',' class="next">' %}
+{% assign showerify_middle = showerify_middle | replace:'>&hellip;',' class="next">' %}
+{% assign showerify_middle = showerify_middle | replace:'>…',' class="next">' %}
+{% assign showerify_middle = showerify_middle | replace:' class="next"> ',' class="next">' %}
+{% assign showerify_middle = showerify_middle | replace:'>\...','>...' %}
+{% assign showerify_middle = showerify_middle | replace:'>\&hellip;','>&hellip;' %}
+{% assign showerify_middle = showerify_middle | replace:'>\…','>…' %}
 
 <!-- Prototype of #3, need to split things here -->
 <!-- is there a way to declare <hr/> with classes/attributes? -->
