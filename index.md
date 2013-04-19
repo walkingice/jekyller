@@ -75,6 +75,9 @@ style: |
         background: transparent;
         font-weight: normal;
     }
+    body .shout br {
+        line-height: 175%;
+    }
     pre {
         white-space: pre !important;
         font-family: 'Ubuntu Mono', 'Consolas', 'Menlo', monospace !important;
@@ -117,16 +120,6 @@ style: |
         width: 800px;
         height: 400px;
     }
-    #SeeMore h2 {
-        font-size:100px;
-        }
-    #SeeMore img {
-        width:0.72em;
-        height:0.72em;
-        }
-        br {
-            line-height: 1.5em;
-        }
 
     body .cover figure {
         color: white;
@@ -140,6 +133,10 @@ style: |
         color: #ccc;
         margin-top: -0.4em;
         margin-right: 0em;
+    }
+    body .smaller blockquote {
+        font-style: normal !important;
+        font-size: 135%;
     }
     body blockquote {
         font-style: normal !important;
@@ -314,10 +311,11 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 </figure>
 
 ## .…and the Very Crazy
+{:.autosize}
 
-> 不需登入的網頁，會自動把你登出！
-> 
-> ![](pictures/dict-logout.png)
+* 不需登入的網頁，會自動把你登出！
+
+![](pictures/dict-logout.png)
 
 ## Yeh's Ping, 2013.1.26.
 
@@ -335,11 +333,12 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## g0v hackath1n, 2013.1.27.
 
-* …Scraped 3000 characters into HTML (au)
-* …Scraped 2741 idioms into HTML (TonyQ, MnO2)
-* …Designed JSON schema from samples (Ping)
-* …Designed SQL schema from samples (albb0920)
-* …Parsed HTML into JSON & SQLite (kcwu)
+* …Scrap 3000 characters as raw HTML (@au)
+* …Scrap 2741 idioms as HTML (@TonyQ, @MnO2)
+* …Design **JSON schema** from samples (@pingooo)
+* …Design **SQL schema** from samples (@albb0920)
+* …**Parse** HTML into JSON & SQLite (@kcwu)
+* ……and for those **24x24 bitmaps**...
 
 ## `←`&#x1f01d; `Big-5`<br>`→`&#x1f00e; `UTF-8`
 {:.shout #big5-utf8}
@@ -433,10 +432,10 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## Chinese Segmentation
 
 * No whitespaces between words
-* Lots of heuristic algorithms
-* Naive solution: Longest-token match
-    * Requires a large dictionary
-    * ...wait, we just got one here
+* …Lots of heuristic algorithms
+* …Naive solution: Longest-token match
+    * …Requires a large dictionary
+    * …...wait, we just got one here
 
 ## Initial Implementation
 
@@ -445,11 +444,11 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Works well, but...
 
-* Freezes IE8, crashes IE7
-    * Broken on Android 2.x, too
-* So let's pre-segment everything
-    * Needs a tool to move JS into DB
-    * ...wait, we just got one here
+* …Freezes IE8, crashes IE7
+    * …Broken on Android 2.x, too
+* …So let's pre-segment everything
+    * …Needs a tool to move JS into DB
+    * …...wait, we just got one here too
 
 ## `/a/pua/文字.json`
 {:.wrap}
@@ -471,11 +470,11 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Let's PhoneGap it!
 
-* …Freezes XCode
-* …Crashes Eclipse
+* …Freezes XCode, crashes Eclipse
 * …Solution: Pack into 1024 .txt files
-    * Using the last 10 bits of the first word
-    * Load related words in the same bucket
+    * …Take the first character, `mod 1024`
+    * …Load related words in the same bucket
+* …Great success!
 
 ## Google Play & App Store
 
@@ -508,17 +507,18 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## Good Parts
 
 * Unified Romanization system (TL)
-* Standardized Ideographic characters (RHC)
-* Full text search in Mandarin, TL or RHC
-* MP3 pronounciations of all entries
-* Licensed under CC-BY-ND 3.0
+* …Standardized Ideographic characters (RHC)
+* …Full text search in Mandarin, TL or RHC
+* …MP3 pronounciations of all entries
+* …Licensed under CC-BY-ND 3.0
 
 ## Not-so-good Parts
 
 * Entries are in non-bookmarkable iframes
-* Still uses bitmaps for Ext-B+ fonts
-* No corresponding Mandarin from entries
-* Easy to scrap but hard to parse
+* …Still uses bitmaps for Ext-B+ fonts
+* …No corresponding Mandarin from entries
+* …Easy to scrap but hard to parse
+    * ...as discovered by @happyman_eric
 
 ## g0v hackath2n, 2013.3.23.
 
@@ -548,27 +548,30 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 > 資料匯入目前大致無誤。不過，twblg 網頁上的「華語檢索」，可以用「一乾二淨」找到閩語典的「離離」條目，這個對照表似乎沒有在 Excel 檔中看到？
 
 ## Well...
+{:.smaller}
 
 > 語言之間的對譯，不能盡然以詞彙對應，對不夠深入了解的使用者來說，會讓他誤以為A語言的X詞等於B語言的Y詞（並且這種呈現，會被民眾認知為「教育部的辭典說的」），這有很大的語言教育問題，所以那個跨語平台後來收掉了。
 
 
 ## However...
+{:.smaller}
 
 > 因此，華語對應這個欄位，我們是藏在系統中，目的是讓不會閩南語拼音用字的人也能查到他要的詞彙，但又基於上述理由不能把這些詞彙呈現給使用者。如果是民間的辭典編輯，會比較沒有這個負擔，因此我這裡確實不能給，非常希望你們能有辦法解決。
 
 ## ...it's all good.
 
 > 好的，感謝您的提醒和協助。<br>
-> 目前從網頁以 Big5 範圍取出的華語條目，共有 26274 筆對映。<br>
+> 目前從網頁以 Big5 範圍取出的華語條目，<br>
+> 共有 26274 筆對映。<br>
 > 在應用上，這部份我們會註明不屬於教育部 CC-BY-ND 的授權範圍。
 
 ## Data Cleanup, 2013.3.30.
 
-* 3 stars: ▵ Non-Proprietary Format
 * Converted all .xsl to .csv with LibreOffice 4
-* Replaced PUA characters with mapped Unicode
-* Added `x-造字.csv` and `x-華語對照表.csv	`
-* Time to put PgREST to work!
+	* …3 stars: ▵ Non-Proprietary Format
+* …Replaced PUA characters with mapped Unicode
+	* …Added `x-造字.csv` and `x-華語對照表.csv	`
+* …Time to put PgREST to work!
 
 ## PgREST: Import/Export
 
