@@ -88,7 +88,7 @@ style: |
     .slide img {
         height: 400px;
     }
-    .slide blockquote img {
+    .slide blockquote img, .slide.autosize img {
         height: auto;
     }
     .cover img {
@@ -96,8 +96,6 @@ style: |
     }
     .vertical-top p {
         vertical-align: top;
-        margin-top: 50px;
-        margin-right: 50px;
     }
 
     .slide ul, p {
@@ -351,6 +349,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 ![](pictures/thinking.png)
 
 ## Finished in 24 hours!
+{:.autosize}
 
 Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Daniel Liang, Grey Lee, Irvin Chen, Gugod, Schee…
 ![](pictures/unimap.png)
@@ -467,8 +466,8 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## Materialized View: 160k .json files
 {:.vertical-top}
 
-@obra++
 ![](pictures/drobo.jpg)
+(@obra++)
 
 ## Let's PhoneGap it!
 
@@ -492,8 +491,115 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 {:.cover #twblg}
 ![](pictures/seeking.jpg)
 
-## Request Form
+## Personal Motivation
+
+* Grandparents were my main caretakers
+    * …Grandma from Lo̍k-káng, Taiwan
+    * …Grandpa from Sì-chuān, China
+* …Raised biligually as a pre-schooler
+    * …But only Mandarin had a writing system
+    * …Editing her memoir brought back memories
+
+## Taiwan Bân-lâm-gi Common Dictionary
+{:.vertical-top}
+![](pictures/twblg.jpg)
+(2011)
+
+## Good Parts
+
+* Unified Romanization system (TL)
+* Standardized Ideographic characters (RHC)
+* Full text search in Mandarin, TL or RHC
+* MP3 pronounciations of all entries
+* Licensed under CC-BY-ND 3.0
+
+## Not-so-good Parts
+
+* Entries are in non-bookmarkable iframes
+* Still uses bitmaps for Ext-B+ fonts
+* No corresponding Mandarin from entries
+* Easy to scrap but hard to parse
+
+## g0v hackath2n, 2013.3.23.
+
 ![](pictures/twblg-request.jpg)
+
+## Crowd-sourcing 154 glyphs
+
+<iframe data-src="https://ethercalc.org3du-holohak"></iframe>
+
+## Finished over lunch!
+
+<iframe data-src="http://www.plurk.com/p/icne8t"></iframe>
+<!-- TODO XXX: Thank everybody -->
+
+## Database received, 2013.3.27.
+
+* `詞目總檔.xls` `詞目總檔.屬性對照.xls`
+* `釋義.xls` `釋義.詞性對照.xls`
+* `又音.xls` `又音.屬性對照.xls`
+* `近義詞對應.xls` `反義詞對應.xls`
+* `詞彙方言差.xls` `語音方言差.xls`
+* `例句.xls`
+
+## What about that extra request?
+
+> 您好：<br>
+> 資料匯入目前大致無誤。不過，twblg 網頁上的「華語檢索」，可以用「一乾二淨」找到閩語典的「離離」條目，這個對照表似乎沒有在 Excel 檔中看到？
+
+## Well...
+
+> 語言之間的對譯，不能盡然以詞彙對應，對不夠深入了解的使用者來說，會讓他誤以為A語言的X詞等於B語言的Y詞（並且這種呈現，會被民眾認知為「教育部的辭典說的」），這有很大的語言教育問題，所以那個跨語平台後來收掉了。
+
+
+## However...
+
+> 因此，華語對應這個欄位，我們是藏在系統中，目的是讓不會閩南語拼音用字的人也能查到他要的詞彙，但又基於上述理由不能把這些詞彙呈現給使用者。如果是民間的辭典編輯，會比較沒有這個負擔，因此我這裡確實不能給，非常希望你們能有辦法解決。
+
+## ...it's all good.
+
+> 好的，感謝您的提醒和協助。<br>
+> 目前從網頁以 Big5 範圍取出的華語條目，共有 26274 筆對映。<br>
+> 在應用上，這部份我們會註明不屬於教育部 CC-BY-ND 的授權範圍。
+
+## Data Cleanup, 2013.3.30.
+
+* 3 stars: ▵ Non-Proprietary Format
+* Converted all .xsl to .csv with LibreOffice 4
+* Replaced PUA characters with mapped Unicode
+* Added `x-造字.csv` and `x-華語對照表.csv	`
+* Time to put PgREST to work!
+
+## PgREST: Import/Export
+
+~~~ php
+pgrest dbname
+export API=http://127.0.0.1:3000
+curl -i -X PUT -H "Content-Type: text/csv" \
+     --data-binary @uni/詞目總檔.csv $API/collections/entries
+
+curl $API/collections/entries
+{"主編號","1","屬性":"1","詞目":"一","音讀":"tsi̍t",
+ "文白俗替":"替","部首":"一","部首序":"001-00-01","方言差":""}
+~~~
+
+## PgREST: MongoLab REST API
+
+* XXX API Map
+
+## PgREST: 3du.tw JSON in 48 lines 
+
+<https://github.com/g0v/moedict-data-twblg/blob/master/gen.ls>
+
+> ![](pictures/twblg-tweet.png)
+
+## Live Demo, part III
+
+## Lessons Learned
+
+* XXX more reflections
+* Create conversations with all participants
+* Keep a kind heart; assume the best intentions
 
 ## 宅心仁厚<br>仁者無敵
 {:.shout #nerds-without-enemies}
@@ -508,6 +614,10 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## 開站一時<br>開源一輩子
 {:.shout #site-a-time-source-a-lifetime}
+
+## Thank you!
+{:.cover}
+![](pictures/stars.jpg)
 
 ## Thank you!
 {:.cover #answer}
