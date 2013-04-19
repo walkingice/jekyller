@@ -40,6 +40,10 @@ style: |
         color: #222;
         font-weight: normal;
     }
+    body .shout code {
+        background: transparent;
+        font-weight: normal;
+    }
     pre {
         white-space: pre !important;
         font-family: 'Ubuntu Mono', 'Consolas', 'Menlo', monospace !important;
@@ -83,13 +87,19 @@ style: |
     body .cover figure {
         color: white;
     }
-    body .cover figcaption {
+    body figcaption {
         float: right;
-        font-style: normal;
+        font-style: normal !important;
         font-size: 140%;
+    }
+    body .cover figcaption {
         color: #ccc;
         margin-top: -0.4em;
         margin-right: 0em;
+    }
+    body blockquote {
+        font-style: normal !important;
+        font-size: 150%;
     }
     body .cover blockquote {
         font-style: normal;
@@ -220,6 +230,12 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 ## `3du.tw`
 {:.cover #3du}
 ![](pictures/3du.jpg)
+<!-- by Kanko, https://secure.flickr.com/photos/kankan/134663487/ -->
+
+## 3du.tw on Hackpad
+
+<iframe src="data:http://3du.tw/"></iframe>
+<!-- Replace with screenshot? -->
 
 ## `moedict.tw`
 {:.cover #moedict}
@@ -227,7 +243,16 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## Live Demo
 
-<iframe src="https://moedict.tw/"></iframe>
+<iframe src="data:http://moedict.tw/"></iframe>
+<!-- Replace with localhost -->
+
+## 5 Stars of Open Data
+
+* ⊙ Open License
+* ↔ Structure Data Format
+* ▵ Non-Proprietary Format
+* ✧ Each items has an URI
+* ✩ Link to other data
 
 ## `twblg.moedict.tw`
 {:.cover #twblg}
@@ -236,7 +261,33 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 ## Request Form
 ![](pictures/twblg-request.jpg)
 
-## Q & A
+## `←`&#x1f01d; `Big-5`<br>`→`&#x1f00e; `UTF-8`
+{:.shout #big5-utf8}
+
+## 零時黑客<br>集體砍站事件
+{:.shout #g0v-scraping}
+
+## 粗略的共識<br>會動的程式
+{:.shout #rough-consensus-running-code}
+
+## 宅心仁厚<br>仁者無敵
+{:.shout #nerds-without-enemies}
+
+## 科技始終<br>來自於佛性
+{:.shout #technology-buddha-nature}
+
+## When is Transparency Useful?
+
+<figure markdown="1">
+> 眾人為了共同目標聚在一起，才能做出改變，科技人很難獨力完成。<br>
+> 衡量成功的標準，可以是有多少人的生命因你獲得改善，而不只是有多少人看你架的網站。
+<figcaption>— Aaron Swartz, «Open Government»</figcaption>
+</figure>
+
+## 開站一時<br>開源一輩子
+{:.shout #site-a-time-source-a-lifetime}
+
+## Thank you!
 {:.cover #answer}
 
 <figure markdown="1">
