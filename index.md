@@ -596,7 +596,7 @@ curl $MOE/collections/entries?q={"部首":"一"}
 pgrest dbname
 export MOE=http://127.0.0.1:3000
 curl -i -X PUT -H "Content-Type: text/csv" \
-     --data-binary @uni/詞目總檔.csv $API/collections/entries
+     --data-binary @uni/詞目總檔.csv $MOE/collections/entries
 
 curl $API/collections/entries
 {"主編號","1","屬性":"1","詞目":"一","音讀":"tsi̍t",
