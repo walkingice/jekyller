@@ -370,7 +370,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * <strong>**Rails**</strong> API server (@albb0920)
 * **AngularJS** Client+Server (@viirya)
 * **Chrome** Extension (@tonytonyjan)
-* **Sublime** Text plugin (@zonble)
+* **Sublime Text** plugin (@zonble)
 * **WinRT** Component (@eriksk)
 
 ## Fair Use
@@ -452,7 +452,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
     * …Needs a tool to **move JS into DB**
     * …...wait, we just got one here
 
-## `/a/pua/文字.json`
+## `/a/文字.json`
 {:.wrap}
 
 ~~~ json
