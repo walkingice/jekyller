@@ -334,8 +334,8 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## g0v hackath1n, 2013.1.27.
 
-* …Scrap 2741 idioms as **HTML** (@TonyQ, @MnO2)
-* …Scrap 3000 characters as raw **HTML** (@au)
+* …Scrape 2741 idioms as **HTML** (@TonyQ, @MnO2)
+* …Scrape 3000 characters as raw **HTML** (@au)
 * …Design **JSON schema** from samples (@pingooo)
 * …Design **SQL schema** from samples (@albb0920)
 * …**Parse** HTML into JSON & SQLite (@kcwu)
