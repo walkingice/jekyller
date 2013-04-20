@@ -575,7 +575,7 @@ Thanks to: @happyman, @Irvin, @hit1205, @MissleTW, @YuerLee, @YuanChao, @clkao, 
 * Convert all .xsl to .csv with **LibreOffice 4**
 	* …3 stars: ▵ **Non-Proprietary Format**
 * …Replace PUA characters with mapped Unicode
-	* …Added `x-造字.csv` and `x-華語對照表.csv	`
+	* …Add `x-造字.csv` and `x-華語對照表.csv	`
 * …Time to put **PgREST** to work!
 
 ## PgREST: MongoLab API Server
