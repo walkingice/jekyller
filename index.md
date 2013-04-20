@@ -6,6 +6,7 @@ style: |
     #_ h2 a {
         border-bottom: 1px dotted #eee;
         color: white;
+        line-height: 200%;
     }
     @font-face {
         font-family: 'Symbola';
@@ -447,8 +448,8 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 * …Freezes **IE8**, crashes **IE7**
     * …Broken on **Android 2.x**, too
-* …So let's pre-segment on server
-    * …Needs a tool to move JS into DB
+* …So let's **pre-segment** on server
+    * …Needs a tool to **move JS into DB**
     * …...wait, we just got one here
 
 ## `/a/pua/文字.json`
@@ -473,7 +474,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * …Freezes **XCode**, crashes **Eclipse**
 * …Solution: Pack into 1024 `.txt` files
     * …Take the first character, `mod 1024`
-    * …Related words share the same bucket
+    * …Related words share the **same bucket**
 * …Great success!
 
 ## Google Play & App Store
@@ -485,7 +486,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * Wildcard and **part-of-word** searching (@esor)
 * …Two-column layout for **tablets** (@hlb)
 * …**Toggle** between Pinyin and Bopomofo (@matic)
-* …**Volume key** on Android resizes fonts
+* …**Volume key** on Android resizes fonts (@ivan)
 * …Top Request: **Taiwanese Bân-lâm-gi**
 
 ## `twblg.moedict.tw`
@@ -520,13 +521,15 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * …No **equivalent Mandarin** field for entries
 * …Still uses **bitmaps** for Ext-B+ fonts
 * …Easy to scrap but **hard to parse**
-    * ...as discovered by @happyman_eric
+    * …...as discovered by @happyman_eric
 
 ## g0v hackath2n, 2013.3.23.
 
 ![](pictures/twblg-request.jpg)
 
 ## Crowd-OCR for 154 glyphs, 2013.3.25.
+
+![](pictures/3du-holohak.png)
 
 <iframe data-src="https://ethercalc.org3du-holohak"></iframe>
 
@@ -535,7 +538,6 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 Thanks to: @happyman, @Irvin, @hit1205, @MissleTW, @YuerLee, @YuanChao, @clkao, @MGDesigner, @gontera…
 ![](pictures/3du-plurk.png)
-<!-- TODO XXX: Thank everybody -->
 
 ## Database received, 2013.3.27.
 
@@ -546,23 +548,22 @@ Thanks to: @happyman, @Irvin, @hit1205, @MissleTW, @YuerLee, @YuanChao, @clkao, 
 * `詞彙方言差.xls` `語音方言差.xls`
 * `例句.xls`
 
-## ...What about that extra request?
+## .…What about that extra request?
 
 > 您好：<br>
 > 資料匯入目前大致無誤。不過，twblg 網頁上的「華語檢索」，可以用「一乾二淨」找到閩語典的「離離」條目，這個對照表似乎沒有在 Excel 檔中看到？
 
 ## Well...
-{:.smaller}
 
-> 語言之間的對譯，不能盡然以詞彙對應，對不夠深入了解的使用者來說，會讓他誤以為A語言的X詞等於B語言的Y詞（並且這種呈現，會被民眾認知為「教育部的辭典說的」），這有很大的語言教育問題，所以那個跨語平台後來收掉了。
+> 語言之間的對譯，不能盡然以詞彙對應，對不夠深入了解的使用者來說，會讓他誤以為A語言的X詞等於B語言的Y詞（並且這種呈現，會被民眾認知為「教育部的辭典說的」）。
 
 
 ## However...
-{:.smaller}
 
-> 因此，華語對應這個欄位，我們是藏在系統中，目的是讓不會閩南語拼音用字的人也能查到他要的詞彙，但又基於上述理由不能把這些詞彙呈現給使用者。如果是民間的辭典編輯，會比較沒有這個負擔，因此我這裡確實不能給，非常希望你們能有辦法解決。
+> 因此華語對應這個欄位，我們是藏在系統中。<br>
+> 如果是民間的辭典編輯，會比較沒有這個負擔，因此我這裡確實不能給，非常希望你們能有辦法解決。
 
-## ...it's all good.
+## .…it's all good.
 
 > 好的，感謝您的提醒和協助。<br>
 > 目前從網頁以 Big5 範圍取出的華語條目，<br>
@@ -615,10 +616,10 @@ curl $API/collections/entries
 ## Lessons Learned
 
 * Open Data is a **beginning**, not an end
-* Keep **conversations** with all participants
-    * Turn **detractors** into **collaborators**
-        * Hug **trolls**
-            * Keep a kind heart & assume the best intentions
+* …Keep **conversations** with all participants
+    * …Turn **detractors** into **collaborators**
+        * …Keep a **kind heart**
+            * …Assume the **best intentions**
 
 ## 宅心仁厚<br>仁者無敵
 {:.shout #nerds-without-enemies}
