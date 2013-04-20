@@ -271,9 +271,9 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 ## Cutting out the Middleware
 
 * Serve JSON **API** from SQL
-* Shared **models** & **validation** code
-* Put **Business Logic** into DB
-* Perfect fit for **Medium Data**&trade;
+* …Shared **models** & **validation** code
+* …Put **Business Logic** into DB
+* …Perfect fit for **Medium Data**&trade;
 
 ## @clkao++
 ![](pictures/clkao-cat.jpg)
@@ -324,17 +324,17 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 <figcaption>／葉平〈還文於民〉</figcaption>
 </figure>
 
-## 零時黑客<br>集體砍站事件
-{:.shout #g0v-scraping}
-
 ## Hackpad for 3du.tw
 
 ![](pictures/hackpad.png)
 
+## 零時黑客<br>集體砍站事件
+{:.shout #g0v-scraping}
+
 ## g0v hackath1n, 2013.1.27.
 
-* …Scrap 3000 characters as raw HTML (@au)
 * …Scrap 2741 idioms as HTML (@TonyQ, @MnO2)
+* …Scrap 3000 characters as raw HTML (@au)
 * …Design **JSON schema** from samples (@pingooo)
 * …Design **SQL schema** from samples (@albb0920)
 * …**Parse** HTML into JSON & SQLite (@kcwu)
@@ -358,19 +358,19 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Applications
 
-* XUL Desktop App (@racklin)
-* OS X Dictionary (@yllan)
-* Windows 8 App (@wenpei)
-* iOS Client (@tomjpsun, @jamessa, @pct)
-* iOS App (@zonble)
+* <strong>**XUL**</strong> Desktop App (@racklin)
+* **OS X** Dictionary (@yllan)
+* **Windows 8** App (@wenpei)
+* **iOS** Client (@tomjpsun, @jamessa, @pct)
+* **iOS** Offline App (@zonble)
  
 ## Integrations
 
-* AngularJS Client+Server (@viirya)
-* Rails API server (@albb0920)
-* Chrome Extension (@tonytonyjan)
-* Sublime Text plugin (@zonble)
-* WinRT Component (@eriksk)
+* <strong>**Rails**</strong> API server (@albb0920)
+* **AngularJS** Client+Server (@viirya)
+* **Chrome** Extension (@tonytonyjan)
+* **Sublime** Text plugin (@zonble)
+* **WinRT** Component (@eriksk)
 
 ## Fair Use
 
@@ -404,12 +404,12 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
     * `/uni/文字.json` ⇒ `⿰亻壯`
     * `/pua/文字.json` ⇒ `U+F8FF0`
 
-## Private-Use Web Fonts
+## Web Fonts for Private-Use Area
 
-* Initially based on Hán Nôm font (Yao Wei)
+* Initially based on **Hán Nôm** font (@YaoWei)
     * Subset everything outside Big5 range
-    * Hand-drawn PUA chars like ⿰亻壯
-* …Later on, switched to Hanazono 花園明朝 font
+    * **Hand-drawn** PUA chars like ⿰亻壯
+* …Later on, switched to **Hanazono** 花園明朝 font
     * 75,619 + 8,236 glyphs
     * From 花園大学国際禅学研究所
 
@@ -421,7 +421,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 <iframe data-src="https://moedict.tw/#文字"></iframe>
 <!-- Replace with localhost with autofocus OFF -->
 
-## Getting to the Fifth Star
+## Reaching the Fifth Star
 
 1. ⊙ Open License
 2. ↔ Structured Data
@@ -431,7 +431,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Chinese Segmentation
 
-* No whitespaces between words
+* Therearenowhitespacesbetweenwords
 * …Lots of heuristic algorithms
 * …Naive solution: Longest-token match
     * …Requires a large dictionary
@@ -446,7 +446,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 * …Freezes IE8, crashes IE7
     * …Broken on Android 2.x, too
-* …So let's pre-segment everything
+* …So let's pre-segment on server
     * …Needs a tool to move JS into DB
     * …...wait, we just got one here too
 
@@ -473,17 +473,17 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * …Freezes XCode, crashes Eclipse
 * …Solution: Pack into 1024 .txt files
     * …Take the first character, `mod 1024`
-    * …Load related words in the same bucket
+    * …Related words share the same bucket
 * …Great success!
 
 ## Google Play & App Store
 
 ## Star-Driven Development
 
-* Wildcard and part-of-word searching
-* …Two-column layout for tablets (@hlb++)
-* …Toggle position of Pinyin vs Bopomofo
-* …Volume key on Android to resize fonts!
+* Wildcard and **part-of-word** searching
+* …Two-column layout for **tablets** (@hlb++)
+* …**Toggle** position between Pinyin and Bopomofo
+* …**Volume key** on Android resizes fonts
 * …Top Request: **Taiwanese Bân-lâm-gi**
 
 ## `twblg.moedict.tw`
@@ -492,11 +492,11 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Personal Motivation
 
-* Grandparents were my main caretakers
+* My main caretakers were my grandparents
     * …Grandma from Lo̍k-káng, Taiwan
     * …Grandpa from Sì-chuān, China
-* …Raised biligually as a pre-schooler
-    * …But only Mandarin had a writing system
+* …Raised **biligually** as a pre-schooler
+    * …But only Mandarin had a **writing system**
     * …Editing her memoir brought back memories
 
 ## Taiwan Bân-lâm-gi Common Dictionary
@@ -508,15 +508,15 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 * Unified Romanization system (TL)
 * …Standardized Ideographic characters (RHC)
-* …Full text search in Mandarin, TL or RHC
+* …Full text search in Mandarin, TL & RHC
 * …MP3 pronounciations of all entries
 * …Licensed under CC-BY-ND 3.0
 
 ## Not-so-good Parts
 
 * Entries are in non-bookmarkable iframes
+* …No "equivalent Mandarin" field for entries
 * …Still uses bitmaps for Ext-B+ fonts
-* …No corresponding Mandarin from entries
 * …Easy to scrap but hard to parse
     * ...as discovered by @happyman_eric
 
@@ -568,7 +568,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## Data Cleanup, 2013.3.30.
 
 * Converted all .xsl to .csv with LibreOffice 4
-	* …3 stars: ▵ Non-Proprietary Format
+	* …3 stars: ▵ **Non-Proprietary Format**
 * …Replaced PUA characters with mapped Unicode
 	* …Added `x-造字.csv` and `x-華語對照表.csv	`
 * …Time to put PgREST to work!
