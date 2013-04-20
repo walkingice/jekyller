@@ -289,19 +289,19 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## The Good
 
-* 160,000+ entries
-* …Official, high quality sources
-* …Rich etymology and historical usage
-* …Full text search with regular expressions
+* <strong>**160,000+**</strong> entries
+* …Official, **high quality** sources
+* …Rich **etymology** and historical usage
+* …Full text search with **regular expressions**
 * …Still frequently updated!
 
 ## The Bad
 
-* Results are not bookmarkable
-* …Requires N clicks to get to a definition
-* …Rare characters become low-res bitmaps
-* …Difficult to use on mobile devices
-* …"Optimized for IE 5.0 and Netscape 4.7+"!?
+* Results are **not bookmarkable**
+* …Requires **N clicks** to get to a definition
+* …Rare characters become **low-res bitmaps**
+* …Difficult to use on **mobile devices**
+* …"Optimized for **IE 5.0** and **Netscape 4.7+**"!?
 
 ## The Sad
 
@@ -333,8 +333,8 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 
 ## g0v hackath1n, 2013.1.27.
 
-* …Scrap 2741 idioms as HTML (@TonyQ, @MnO2)
-* …Scrap 3000 characters as raw HTML (@au)
+* …Scrap 2741 idioms as **HTML** (@TonyQ, @MnO2)
+* …Scrap 3000 characters as raw **HTML** (@au)
 * …Design **JSON schema** from samples (@pingooo)
 * …Design **SQL schema** from samples (@albb0920)
 * …**Parse** HTML into JSON & SQLite (@kcwu)
@@ -343,7 +343,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 ## `←`&#x1f01d; `Big-5`<br>`→`&#x1f00e; `UTF-8`
 {:.shout #big5-utf8}
 
-## Crowd-sourcing 1000+ glyphs
+## Crowd-OCR for 1000+ glyphs
 
 ![](pictures/thinking.png)
 
@@ -408,7 +408,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 * Initially based on **Hán Nôm** font (@YaoWei)
     * Subset everything outside Big5 range
-    * **Hand-drawn** PUA chars like ⿰亻壯
+    * **Hand-drawn** PUA chars like `⿰亻壯`
 * …Later on, switched to **Hanazono** 花園明朝 font
     * 75,619 + 8,236 glyphs
     * From 花園大学国際禅学研究所
@@ -418,8 +418,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Live Demo
 
-<iframe data-src="https://moedict.tw/#文字"></iframe>
-<!-- Replace with localhost with autofocus OFF -->
+<a target="_blank" href="https://moedict.tw/#文字">![](pictures/wenzi.png)</a>
 
 ## Reaching the Fifth Star
 
@@ -432,23 +431,25 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## Chinese Segmentation
 
 * Therearenowhitespacesbetweenwords
-* …Lots of heuristic algorithms
-* …Naive solution: Longest-token match
+* …Lots of **heuristic** algorithms
+* …Naive solution: **Longest-token** match
     * …Requires a large dictionary
     * …...wait, we just got one here
 
-## Initial Implementation
+## In-browser Implementation
+{:.wrap}
 
-* XXX For the client side
-* XXX: lenToRegex
+~~~ json
+{"4":"一(丁不識|不小心|不扭眾|不拗眾|世之雄|世英名|丘一壑|丘之貉|串驪珠|之為甚|之謂甚|乾二淨|了心願|了百了|了百當|事無成|五一十|人之交|介不取|仍舊貫|代宗匠|代宗臣|代巨擘|代楷模|代風流|代鼎臣|以當十|以貫之|來一往|來二去|依舊式|個勁兒|個子兒|個樣兒|倡三歎|倡百和|偏之見|傅眾咻|償宿願|元大武|元復始|兵一卒|刀一割|刀兩斷|刀兩段|分一毫|切從簡|切現成|切眾生|刻千金|力承當|勇之夫|勞久逸|勞永逸|匡天下|去不返|反常態|口價兒|口兩匙|口咬定|口咬死|古腦兒|名半職|吐為快|吹一唱|呼再諾|呼百應|呼百諾|命嗚呼|哄而上|哄而散|哄而起|哄而集|唱一和|唱三歎|唱百和|喫一添|國三公|國兩制|團和氣|團漆黑|地胡拿|場春夢|塌糊塗|塵不染|壺千金|夔已足|夜無夢|夜無眠|大三大|大二小|
+~~~
 
-## Works well, but...
+## Worked well, but...
 
-* …Freezes IE8, crashes IE7
-    * …Broken on Android 2.x, too
+* …Freezes **IE8**, crashes **IE7**
+    * …Broken on **Android 2.x**, too
 * …So let's pre-segment on server
     * …Needs a tool to move JS into DB
-    * …...wait, we just got one here too
+    * …...wait, we just got one here
 
 ## `/a/pua/文字.json`
 {:.wrap}
@@ -459,8 +460,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Live Demo, part II
 
-<iframe data-src="https://moedict.tw/#文字"></iframe>
-<!-- Replace with localhost with autofocus OFF -->
+<a target="_blank" href="https://moedict.tw/#文字">![](pictures/wenzi.png)</a>
 
 ## Materialized View: 160k .json files
 {:.vertical-top}
@@ -470,19 +470,21 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Let's PhoneGap it!
 
-* …Freezes XCode, crashes Eclipse
-* …Solution: Pack into 1024 .txt files
+* …Freezes **XCode**, crashes **Eclipse**
+* …Solution: Pack into 1024 `.txt` files
     * …Take the first character, `mod 1024`
     * …Related words share the same bucket
 * …Great success!
 
 ## Google Play & App Store
 
-## Star-Driven Development
+![](pictures/google-play.png)
 
-* Wildcard and **part-of-word** searching
-* …Two-column layout for **tablets** (@hlb++)
-* …**Toggle** position between Pinyin and Bopomofo
+## User-Driven Development
+
+* Wildcard and **part-of-word** searching (@esor)
+* …Two-column layout for **tablets** (@hlb)
+* …**Toggle** between Pinyin and Bopomofo (@matic)
 * …**Volume key** on Android resizes fonts
 * …Top Request: **Taiwanese Bân-lâm-gi**
 
@@ -492,45 +494,47 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Personal Motivation
 
-* My main caretakers were my grandparents
+* My main caretakers were my **grandparents**
     * …Grandma from Lo̍k-káng, Taiwan
     * …Grandpa from Sì-chuān, China
 * …Raised **biligually** as a pre-schooler
     * …But only Mandarin had a **writing system**
-    * …Editing her memoir brought back memories
+    * …Editing her **memoir** brought back memories
 
 ## Taiwan Bân-lâm-gi Common Dictionary
 {:.vertical-top}
 ![](pictures/twblg.jpg)
-(2011)
+(MoE, 2011)
 
 ## Good Parts
 
-* Unified Romanization system (TL)
-* …Standardized Ideographic characters (RHC)
-* …Full text search in Mandarin, TL & RHC
-* …MP3 pronounciations of all entries
-* …Licensed under CC-BY-ND 3.0
+* Unified **Romanization** system (TL)
+* …Standardized **Ideographic** characters (RHC)
+* …Full text search with **Mandarin**, TL & RHC
+* …MP3 **pronounciations** of all entries
+* …Licensed under **CC-BY-ND** 3.0
 
 ## Not-so-good Parts
 
-* Entries are in non-bookmarkable iframes
-* …No "equivalent Mandarin" field for entries
-* …Still uses bitmaps for Ext-B+ fonts
-* …Easy to scrap but hard to parse
+* Entries are in non-bookmarkable **<iframe>**s
+* …No **equivalent Mandarin** field for entries
+* …Still uses **bitmaps** for Ext-B+ fonts
+* …Easy to scrap but **hard to parse**
     * ...as discovered by @happyman_eric
 
 ## g0v hackath2n, 2013.3.23.
 
 ![](pictures/twblg-request.jpg)
 
-## Crowd-sourcing 154 glyphs
+## Crowd-OCR for 154 glyphs, 2013.3.25.
 
 <iframe data-src="https://ethercalc.org3du-holohak"></iframe>
 
 ## Finished over lunch!
+{:.autosize}
 
-<iframe data-src="http://www.plurk.com/p/icne8t"></iframe>
+Thanks to: @happyman, @Irvin, @hit1205, @MissleTW, @YuerLee, @YuanChao, @clkao, @MGDesigner, @gontera…
+![](pictures/3du-plurk.png)
 <!-- TODO XXX: Thank everybody -->
 
 ## Database received, 2013.3.27.
@@ -542,7 +546,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * `詞彙方言差.xls` `語音方言差.xls`
 * `例句.xls`
 
-## What about that extra request?
+## ...What about that extra request?
 
 > 您好：<br>
 > 資料匯入目前大致無誤。不過，twblg 網頁上的「華語檢索」，可以用「一乾二淨」找到閩語典的「離離」條目，這個對照表似乎沒有在 Excel 檔中看到？
@@ -567,11 +571,11 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 
 ## Data Cleanup, 2013.3.30.
 
-* Converted all .xsl to .csv with LibreOffice 4
+* Convert all .xsl to .csv with **LibreOffice 4**
 	* …3 stars: ▵ **Non-Proprietary Format**
-* …Replaced PUA characters with mapped Unicode
+* …Replace PUA characters with mapped Unicode
 	* …Added `x-造字.csv` and `x-華語對照表.csv	`
-* …Time to put PgREST to work!
+* …Time to put **PgREST** to work!
 
 ## PgREST: Import/Export
 
