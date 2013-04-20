@@ -495,8 +495,8 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## Personal Motivation
 
 * My main caretakers were my **grandparents**
-    * …Grandma from Lo̍k-káng, Taiwan
-    * …Grandpa from Sì-chuān, China
+    * …Grandma from **Lo̍k-káng**, Taiwan
+    * …Grandpa from **Sì-chuān**, China
 * …Raised **biligually** as a pre-schooler
     * …But only Mandarin had a **writing system**
     * …Editing her **memoir** brought back memories
@@ -577,11 +577,23 @@ Thanks to: @happyman, @Irvin, @hit1205, @MissleTW, @YuerLee, @YuanChao, @clkao, 
 	* …Added `x-造字.csv` and `x-華語對照表.csv	`
 * …Time to put **PgREST** to work!
 
+## PgREST: MongoLab API Server
+
+* GET `/collections/db`
+    * q=<query>&c=true&f=<fields>&fo=true&s=<order>&sk=<skip>&l=<limit>
+
+~~~ php
+curl $LY/collections/bills?q={"proposal.0":"吳育昇"}
+curl $MOE/collections/entries?q={"部首":"一"}
+~~~
+
+* PUT `/collections/db`
+
 ## PgREST: Import/Export
 
 ~~~ php
 pgrest dbname
-export API=http://127.0.0.1:3000
+export MOE=http://127.0.0.1:3000
 curl -i -X PUT -H "Content-Type: text/csv" \
      --data-binary @uni/詞目總檔.csv $API/collections/entries
 
@@ -589,10 +601,6 @@ curl $API/collections/entries
 {"主編號","1","屬性":"1","詞目":"一","音讀":"tsi̍t",
  "文白俗替":"替","部首":"一","部首序":"001-00-01","方言差":""}
 ~~~
-
-## PgREST: MongoLab REST API
-
-* XXX API Map
 
 ## PgREST: 3du.tw JSON in 48 lines 
 
@@ -602,14 +610,21 @@ curl $API/collections/entries
 
 ## Live Demo, part III
 
+<a target="_blank" href="https://twblg.moedict.tw/#文">![](pictures/twblg-bun.png)</a>
+
 ## Lessons Learned
 
-* XXX more reflections
-* Create conversations with all participants
-* Keep a kind heart; assume the best intentions
+* Open Data is a **beginning**, not an end
+* Keep **conversations** with all participants
+    * Turn **detractors** into **collaborators**
+        * Hug **trolls**
+            * Keep a kind heart & assume the best intentions
 
 ## 宅心仁厚<br>仁者無敵
 {:.shout #nerds-without-enemies}
+
+## 阿宅無敵
+{:.shout #nerds-invincibility}
 
 ## When is Transparency Useful?
 
