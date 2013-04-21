@@ -599,13 +599,13 @@ curl -i -X PUT -H "Content-Type: text/csv" \
      --data-binary @uni/詞目總檔.csv $MOE/collections/entries
 
 curl $MOE/collections/entries
-[{"主編號","1","屬性":"1","詞目":"一","音讀":"tsi̍t",
-  "文白俗替":"替","部首":"一","部首序":"001-00-01","方言差":""}]
+# [{"主編號","1","屬性":"1","詞目":"一","音讀":"tsi̍t",
+#   "文白俗替":"替","部首":"一","部首序":"001-00-01","方言差":""}]
 ~~~
 
 ## PgREST: 3du.tw JSON in 48 lines 
 
-<https://github.com/g0v/moedict-data-twblg/blob/master/gen.ls>
+<a target="_blank" href="https://github.com/g0v/moedict-data-twblg/blob/master/gen.ls">https://github.com/g0v/moedict-data-twblg/blob/master/gen.ls</a>
 
 > ![](pictures/twblg-tweet.png)
 
