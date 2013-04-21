@@ -611,7 +611,7 @@ curl $MOE/collections/entries
 
 ## Live Demo, part III
 
-<a target="_blank" href="https://twblg.moedict.tw/#文">![](pictures/twblg-bun.png)</a>
+<a target="_blank" href="https://moedict.tw/#!文">![](pictures/twblg-bun.png)</a>
 
 ## Lessons Learned
 
