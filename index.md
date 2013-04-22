@@ -216,7 +216,7 @@ SELECT entry ~> '@bopomofo' FROM moe;
 -- "ㄇㄥˊ"
 SELECT '@bopomofo' <~ entry FROM moe;
 -- "ㄇㄥˊ"
-SELECT ~> 'new Date' FROM moe;
+SELECT ~> 'new Date';
 -- "2013-04-17T12:31:57.523Z"
 ~~~
 
@@ -382,7 +382,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## CC0: Public Domain
 
 <figure markdown="1">
-> 除前述資料檔之外，本目錄下的所有其他檔案，由作者 唐鳳 在法律 許可的範圍內，拋棄該著作依著作權法所享有之權利，包括所有相關 與鄰接的法律權利，並宣告將該著作貢獻至公眾領域。
+> 除前述資料檔之外，本目錄下的所有其他檔案，由作者 唐鳳 在法律許可的範圍內，拋棄該著作依著作權法所享有之權利，包括所有相關與鄰接的法律權利，並宣告將該著作貢獻至公眾領域。
 </figure>
 
 ## `moedict.tw`
@@ -520,7 +520,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * Entries are in non-bookmarkable **<iframe>**s
 * …No **equivalent Mandarin** field for entries
 * …Still uses **bitmaps** for Ext-B+ fonts
-* …Easy to scrap but **hard to parse**
+* …Easy to scrape but **hard to parse**
     * …...as discovered by @happyman_eric
 
 ## g0v hackath2n, 2013.3.23.
