@@ -26,6 +26,7 @@ style: |
         color: black !important;
         margin-top: -80px;
         margin-left: 245px;
+        display: none;
     }
     body .slide:not(.shout):not(.cover) > div {
         padding-top: 72px;
