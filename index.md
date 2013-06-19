@@ -612,8 +612,9 @@ curl $MOE/collections/entries
 
 > ![](pictures/twblg-tweet.png)
 
-## Live Demo, part III
+## OSDC.tw, 2013.4.20.
 
+<b>Bân-lâm-gi</b> with cross-referencing and pronounciations!
 <a target="_blank" href="https://moedict.tw/#!文">![](pictures/twblg-bun.png)</a>
 
 ## g0v prehackath3n, 2013.5.23.
