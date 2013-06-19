@@ -14,9 +14,18 @@ style: |
     #thank-you > div, #answer > div {
         padding-top: 64px !important;
     }
+    #g0v-openhack h2 {
+        margin-top: 55px;
+        margin-left: -35px;
+    }
     #blackout h2 {
         margin-top: -70px;
         margin-left: -30px;
+    }
+    #decentralization h2 {
+        color: black !important;
+        margin-top: -80px;
+        margin-left: 245px;
     }
     body .slide:not(.shout):not(.cover) > div {
         padding-top: 72px;
@@ -47,8 +56,11 @@ style: |
         text-align: center;
         color: #FFF;
         font-size: 150%;
+        font-family: 'Ubuntu Mono', monospace;
         }
         #_ p a {
+            text-decoration: none;
+            border: none;
             color:#FFF;
             }
     .wrap pre {
@@ -76,12 +88,16 @@ style: |
         color: #000 !important;
         background: #ffe !important;
     }
-    .cover h2 code {
-        background: transparent;
-        color: white;
-        margin-left: -1em;
+    h2 code {
+        background: transparent !important;
         font-weight: normal;
         font-family: 'Ubuntu Mono', 'Consolas', 'Menlo', monospace !important;
+        color: #666 !important;
+    }
+
+    .cover h2 code {
+        color: white !important;
+        margin-left: -1em;
         }
     body .shout h2 {
         color: #222;
@@ -175,7 +191,7 @@ style: |
 
 # [萌典](https://moedict.tw/) {#_}
 
-Liberating MoE Dictionaries
+零時政府 [g0v.tw](http://g0v.tw/)
 
 ![](pictures/stars.jpg)
 <!-- by-nc-sa orkomedix, https://secure.flickr.com/photos/orkomedix/6812055939 -->
@@ -281,6 +297,59 @@ SELECT fullwidth( PINYIN_UPCASE(entry) ) FROM moe;
 
 ## @clkao++
 ![](pictures/g0v.tw.png)
+
+## 2012.10.21.
+{:.cover #g0v-openhack}
+
+![](pictures/g0v-openhack.png)
+
+## $4.5M, 41 seconds
+{:#g0v-burn}
+
+![](pictures/g0v-burn.png)
+
+## `budget.g0v.tw`
+{:#g0v-prototype}
+
+![](pictures/g0v-prototype.png)
+
+## `budget.g0v.tw`
+{:#g0v-50k}
+
+![](pictures/g0v-50k.png)
+
+## Hackathon
+{:#g0v-hackathon}
+
+![](pictures/g0v-hackathon.png)
+
+## Hackathon Loop
+{:#g0v-hack-loop}
+
+![](pictures/g0v-hackloop.png)
+
+## Hackath[0-3]+n
+
+* 第零次**動員戡亂**黑客松 
+* …第壹次**公地放領**黑客松
+* …第壹之壹次**耕者有其田**黑客松
+* …第貳次**九大建設**黑客松
+* …第參次**客廳工廠**黑客松
+
+## `g0v.tw/about.html`
+{:#g0v-about}
+
+<a target="_blank" href="http://g0v.tw/about.html">![](pictures/g0v-about.png)</a>
+
+## `g0v.tw/about.html`
+{:#g0v-tldr}
+
+<a target="_blank" href="http://g0v.tw/about.html">![](pictures/g0v-tldr.png)</a>
+
+## Decentralization
+{:.cover #decentralization}
+
+![](pictures/g0v-decentralization.png)
 
 ## `3du.tw`
 {:.cover #3du}
