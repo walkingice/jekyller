@@ -15,7 +15,7 @@ style: |
         padding-top: 64px !important;
     }
     #g0v-openhack h2 {
-        margin-top: 55px;
+        margin-top: 70px;
         margin-left: -35px;
     }
     #blackout h2 {
@@ -559,7 +559,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * Wildcard and **part-of-word** searching (@esor)
 * …Two-column layout for **tablets** (@hlb)
 * …**Toggle** between Pinyin and Bopomofo (@matic)
-* …**Volume key** on Android resizes fonts (@ivan)
+* …**Simplified** character lookup (@xiaofang)
 * …Top Request: **Taiwanese Bân-lâm-gi**
 
 ## `twblg.moedict.tw`
