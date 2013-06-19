@@ -7,6 +7,19 @@ style: |
         border-bottom: 1px dotted #eee;
         color: white;
         line-height: 200%;
+        font-size: 160px;
+        font-weight: normal;
+        font-family: 'EBAS';
+    }
+    #thank-you > div, #answer > div {
+        padding-top: 64px !important;
+    }
+    #blackout h2 {
+        margin-top: -70px;
+        margin-left: -30px;
+    }
+    body .slide:not(.shout):not(.cover) > div {
+        padding-top: 72px;
     }
     @font-face {
         font-family: 'Symbola';
@@ -20,17 +33,19 @@ style: |
         font-family: 'Ubuntu';
         src: url('Ubuntu-R.ttf') format('truetype');
     }
+    @font-face {
+        font-family: 'EBAS';
+        src: url('EBAS-Subset.ttf') format('truetype');
+    }
     #_ h2 {
-        margin:65px 0 0;
+        margin: 0;
         color:#FFF;
         text-align:center;
         font-size:70px;
         }
     #_ p {
-        margin: 2em 0 0;
         text-align: center;
         color: #FFF;
-        font-style: italic;
         font-size: 150%;
         }
         #_ p a {
@@ -111,7 +126,14 @@ style: |
     .slide ul li li, .slide ol li li {
         font-size: 1em;
     }
-    .slide ul li strong, .slide ol li strong {
+    .slide b:before {
+        content: '·';
+        color: #ccc;
+        padding-right: 10px;
+        font-size: 30px;
+        line-height: 20px;
+    }
+    .slide ul li strong, .slide ol li strong, b {
         color: #c00;
     }
     .shout {
@@ -151,24 +173,19 @@ style: |
     }
 ---
 
-# [PgREST](http://pgre.st/) <br>Node.js in the Database {#_}
+# [萌典](https://moedict.tw/) {#_}
 
-Audrey Tang
+Liberating MoE Dictionaries
 
 ![](pictures/stars.jpg)
 <!-- by-nc-sa orkomedix, https://secure.flickr.com/photos/orkomedix/6812055939 -->
 
-## 只講程式<br>不講故事
-{:.shout #just-code-no-stories}
+## 先講程式<br>再講故事
+{:.shout #first-code-then-stories}
 
-## PgREST is...
+## HTML
 
-* …**JSON** document store
-* …Running inside **PostgreSQL**
-* …Working with existing **relational** data
-* …Capable of loading **Node.js** modules
-* …Compatible with MongoLab's **REST API**
-* …= `LiveScript` + `PLV8` + `plv8x` + `OneJS`
+![](pictures/html.png)
 
 ## JSON
 
@@ -210,26 +227,12 @@ SELECT get_json_key(entry, 'bopomofo') FROM moe;
 ## plv8x: Operators
 
 ~~~ sql
-SELECT entry |> 'this.bopomofo' FROM moe;
--- "ㄇㄥˊ"
 SELECT entry ~> '@bopomofo' FROM moe;
 -- "ㄇㄥˊ"
 SELECT '@bopomofo' <~ entry FROM moe;
 -- "ㄇㄥˊ"
 SELECT ~> 'new Date';
 -- "2013-04-17T12:31:57.523Z"
-~~~
-
-## plv8x: Command Line
-
-~~~ php
-npm i -g plv8x
-export PLV8XCONN=dbname
-plv8x -r script.ls # .js works too
-plv8x -E 'plv8.execute("SELECT entry FROM moe").0.entry.definitions'
-# [ { type: '名', def: '草木初生的芽。' },
-#   { type: '名', def: '事物發生的開端或徵兆。' },
-#   { type: '名', def: '人民。' } ]
 ~~~
 
 ## plv8x: Modules
@@ -250,13 +253,13 @@ SELECT entry ~> 'require "uax11" .toFullwidth @pinyin' FROM moe;
 
 ~~~ php
 plv8x -f 'text fullwidth(text)=uax11:toFullwidth'
-plv8x -f 'text PINYIN(json)=:&0.pinyin.toUpperCase!'
+plv8x -f 'text PINYIN_UPCASE(json)=:&0.pinyin.toUpperCase!'
 ~~~
 
 ~~~ sql
-SELECT fullwidth('Ingy döt Net');
--- Ｉｎｇｙ　ｄｏ̈ｔ　Ｎｅｔ
-SELECT fullwidth( PINYIN(entry) ) FROM moe;
+SELECT fullwidth('TÂN Pek-tiong');
+-- ＴＡ̂Ｎ　Ｐｅｋ－ｔｉｏｎｇ
+SELECT fullwidth( PINYIN_UPCASE(entry) ) FROM moe;
 -- ＭＥ́ＮＧ
 ~~~
 
@@ -265,7 +268,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 * …`V8`: JavaScript engine
 * …`PLV8`: Stored procedures in JavaScript
 * …`plv8x`: Package manager for PLV8
-    * …Turns **NPM** modules into **SQL functions**
+    * …Turns **Node.js** modules into **SQL functions**
     * …**JSON** expressions with `~>` and `<~`
 * …Code reuse for **browser** + **server** + **database** !
 
@@ -277,7 +280,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 * …Perfect fit for **Medium Data**&trade;
 
 ## @clkao++
-![](pictures/clkao-cat.jpg)
+![](pictures/g0v.tw.png)
 
 ## `3du.tw`
 {:.cover #3du}
@@ -354,7 +357,7 @@ SELECT fullwidth( PINYIN(entry) ) FROM moe;
 Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Daniel Liang, Grey Lee, Irvin Chen, Gugod, Schee…
 ![](pictures/unimap.png)
 
-## 粗略的共識<br>會動的程式
+## 粗略の共識<br>進擊の程式
 {:.shout #rough-consensus-running-code}
 
 ## Applications
@@ -512,7 +515,7 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 * Unified **Romanization** system (TL)
 * …Standardized **Ideographic** characters (RHC)
 * …Full text search with **Mandarin**, TL & RHC
-* …MP3 **pronounciations** of all entries
+* …MP3 **pronounciations** of all 20k entries
 * …Licensed under **CC-BY-ND** 3.0
 
 ## Not-so-good Parts
@@ -581,7 +584,7 @@ Thanks to: @happyman, @Irvin, @hit1205, @MissleTW, @YuerLee, @YuanChao, @clkao, 
 ## PgREST: MongoLab API Server
 
 * GET `/collections/table_or_view`
-    * q=<query>&c=true&f=<fields>&fo=true&s=<order>&sk=<skip>&l=<limit>
+    * ?q=<query>&c=true&f=<fields>&fo=true&s=<order>&sk=<skip>&l=<limit>
 
 ~~~ php
 curl $LY/collections/bills?q={"proposal.0":"吳育昇"}
@@ -613,9 +616,24 @@ curl $MOE/collections/entries
 
 <a target="_blank" href="https://moedict.tw/#!文">![](pictures/twblg-bun.png)</a>
 
+## g0v prehackath3n, 2013.5.23.
+
+<b>English, French & German</b> translations! (@a-tsioh)
+<a target="_blank" href="https://www.moedict.tw/#外文">![](pictures/def-xref.png)</a>
+
+## Blackout, 2013.6.4.
+{:.cover #blackout}
+
+<a target="_blank" href="https://www.moedict.tw/stop-taiwan-sopa/">![](pictures/stop-tw-sopa.png)</a>
+
+## g0v hackath3n, 2013.6.8.
+
+<b>Hakka</b> Dictionary with **14k** entries! (@a-tsioh, @pcchen)
+<a target="_blank" href="https://www.moedict.tw/#:%E5%AF%A7%E8%B3%A3%E7%A5%96%E5%AE%97%E7%94%B0%EF%BC%8C%E4%B8%8D%E5%BF%98%E7%A5%96%E5%AE%97%E8%A8%80%EF%BC%9B%E5%AF%A7%E8%B3%A3%E7%A5%96%E5%AE%97%E5%9D%91%EF%BC%8C%E4%B8%8D%E5%BF%98%E7%A5%96%E5%AE%97%E8%81%B2">![](pictures/hakka-demo.png)</a>
+
 ## Lessons Learned
 
-* Open Data is a **beginning**, not an end
+* …Open Data is a **beginning**, not an end
 * …Keep **conversations** with all participants
     * …Turn **detractors** into **collaborators**
         * …Keep a **kind heart**
