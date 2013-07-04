@@ -96,6 +96,9 @@ style: |
         color: #666 !important;
     }
 
+    .shout h2 code {
+        color: black !important;
+    }
     .cover h2 code {
         color: white !important;
         margin-left: -1em;
@@ -603,8 +606,6 @@ Thanks to: Favonia, Jun-Yuan Yan, Yao Wei, Yaoting Huang, Poka, Caasi Huang, Dan
 ## Crowd-OCR for 154 glyphs, 2013.3.25.
 
 ![](pictures/3du-holohak.png)
-
-<iframe data-src="https://ethercalc.org3du-holohak"></iframe>
 
 ## Finished over lunch!
 {:.autosize}
