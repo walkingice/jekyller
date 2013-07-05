@@ -19,8 +19,10 @@ style: |
         height: 100px;
     }
     #subway img {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
+        float: left;
+        margin-right: 10px;
     }
     #blackout h2 {
         margin-top: -70px;
@@ -271,6 +273,7 @@ angular.bootstrap($element)
 ~~~
 
 ## bootstrapping in existing project
+{:#subway}
 
 Let's walk through this by modifying a real project.
 
@@ -279,8 +282,6 @@ Let's walk through this by modifying a real project.
 ...`WARNING` just an example, not for practical reason nor complete.
 
 ...github.com/clkao/subway angulardemo branch
-
-{:#subway}
 
 ## Let's change the user list
 
