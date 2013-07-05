@@ -366,7 +366,7 @@ Many directives create new scopes.  Some creates isolated scopes.
 
 ~~~ php
 .controller Foo: ($scope, myAuthService) ->
-  $scope.$on 'event-loggedin' -> # dosomething
+  $scope.$on 'event:auth-loggedin' -> # dosomething
 
 .factory Hub: ($http, $rootScope) ->
     login: ->
