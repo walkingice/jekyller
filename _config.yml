@@ -1,22 +1,18 @@
-auto: true
-safe: true
-server: true
 markdown: kramdown
 pygments: true
 permalink: /:title.html
 kramdown:
   coderay_css: class
-exclude: [shower,themes]
+exclude: [_public]
 
 default_theme: ribbon
 default_lang: en
 default_body_class: list
 
 author:
-    name: Audrey Tang
+    name: clkao
     company:
-        name: NTHU 2013
-        # url:  http://example.com/
+        name: 'angularjstw#3'
 
 fork_url: https://github.com/audreyt/moedict-webkit
 progress: true
